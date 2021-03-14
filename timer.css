@@ -1,0 +1,40 @@
+
+main{
+
+	font-family: 'Press Start 2P', cursive;
+
+}
+
+header{
+	text-align: center;
+	padding: 25px;
+}
+
+div{
+	text-align: center;
+}
+
+footer{
+	text-align: center;
+	color: black;
+	margin-top: 15%;
+}
+
+
+.initial {
+	visibility: hidden;
+}
+
+
+.hide {
+	visibility: hidden;
+
+}
+
+#exercise {
+	font-size: 3em;
+}
+
+.visible {
+	visibility: hidden;
+}
