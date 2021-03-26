@@ -8,6 +8,12 @@ main{
 header{
 	text-align: center;
 	padding: 25px;
+	
+}
+
+h1{
+	animation-name: slidein;
+	animation-duration: 3s;
 }
 
 div{
@@ -37,4 +43,53 @@ footer{
 
 .visible {
 	visibility: hidden;
+	animation-name: slideright;
+	animation-duration: 3s;
+}
+
+.fa, .footer-tag{
+	padding: 2%;
+	color: black;
+	font-size: 20px;
+}
+
+.countdownDiv{
+	animation-name: slideup;
+	animation-duration: 3s;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(-25%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+
+}
+
+@keyframes slideright {
+  from {
+    transform: translateX(25%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+
+}
+
+
+@keyframes slideup {
+
+from {
+	transform: translateY(75%);
+} 
+
+to {
+	transform: translateY(0%);
+}
+
+
 }
