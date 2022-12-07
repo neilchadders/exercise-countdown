@@ -12,6 +12,8 @@ const exArr = ["Push Up", "Kettlebell Swing", "Kettlebell Press", "Rows", "Plank
 const click = document.getElementById("start").addEventListener("click", count, { once: true });
 const clear = document.getElementById("clear").addEventListener("click", startAgain);
 
+const pause = document.getElementById("pause").addEventListener("click", pause)
+const resume = document.getElementById("resume").addEventListener("click", resume)
 
 
 // Main Function
@@ -61,7 +63,7 @@ function count() {
 
     setInterval(function () {
 
-      var i = Math.floor(Math.random() * 7);
+      const i = Math.floor(Math.random() * 7);
       exercise.innerHTML = exArr[i];
 
       if (timeleft >= 0) {
