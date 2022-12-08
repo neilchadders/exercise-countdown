@@ -7,71 +7,84 @@ let timeleft = 999;
 const timer = document.getElementById("timer");
 const exercise = document.getElementById("exercise");
 const exArr = ["Push Up", "Kettlebell Swing", "Kettlebell Press", "Rows", "Plank", "Burpees", "Goblet Squat"];
+const i = Math.floor(Math.random() * 7);
 
-
-const click = document.getElementById("start").addEventListener("click", count, { once: true });
+const click = document.getElementById("start").addEventListener("click", callAllCounts, { once: true });
 const clear = document.getElementById("clear").addEventListener("click", startAgain);
-
-const pause = document.getElementById("pause").addEventListener("click", pause)
-const resume = document.getElementById("resume").addEventListener("click", resume)
+const pause = document.getElementById("pauseButton").addEventListener("click", pauseCount)
 
 
-// Main Function
+function callAllCounts() {
+  initialCount()
+  setTimeout(mainCount, 3000)
+  setTimeout(generateExercise, 3000)
 
-function count() {
+}
+
+
+// Initial 3,2,1 countdown function
+function initialCount() {
+
 
   initial.classList.remove("hide");
   exercise.classList.remove("hide");
 
-
-  // Initial countdown function
   setInterval(function () {
 
     if (begin >= 1) {
       initial.innerHTML = begin;
       begin -= 1;
-
     }
-    else if (begin === 0)
+    else if (begin === 0) {
       initial.innerHTML = "Go!";
-  }, 1000);
+    }
+  }, 1000); //1 second decrements
+}
 
 
 
+// Main countdown function 
+function mainCount() {
 
-  // Main countdown function  
-  setTimeout(function () {
+
+  const i = Math.floor(Math.random() * 7);
+  exercise.innerHTML = exArr[i]; // Generates first random exercise from the array
+
+  setInterval(function () {
+
+
+    if (timeleft <= 998) {
+      initial.classList.add("initial"); //Hides the initial countdown
+    }
+
+    if (timeleft >= 0) {
+      timer.innerHTML = timeleft; // The thousand second countdown
+      timeleft -= 1;
+    }
+  }, 1000); //1 second decrements
+
+}
+
+
+
+function generateExercise() {
+
+  setInterval(function () { //this function randomly picks a new exercise every 10 seconds
 
     const i = Math.floor(Math.random() * 7);
-
     exercise.innerHTML = exArr[i];
 
-    setInterval(function () {
-
-      if (timeleft <= 998) {
-        initial.classList.add("initial");
-      }
-
-      if (timeleft >= 0) {
-        timer.innerHTML = timeleft;
-        timeleft -= 1;
-      }
-    }, 1000);
-
-
-
-
-    setInterval(function () {
-
-      const i = Math.floor(Math.random() * 7);
+    if (timeleft >= 0) {
+      exArr[i];
       exercise.innerHTML = exArr[i];
+    }
+  }, 10000); //10 seconds decrements for each excercise
+}
 
-      if (timeleft >= 0) {
-        exArr[i];
-        exercise.innerHTML = exArr[i];
-      }
-    }, 10000);
-  }, 3000);
+
+function pauseCount() {
+  clearInterval(mainCount)
+  console.log("hi")
 }
 
 
