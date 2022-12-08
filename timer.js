@@ -11,8 +11,6 @@ const i = Math.floor(Math.random() * 7);
 
 const click = document.getElementById("start").addEventListener("click", callAllCounts, { once: true });
 const clear = document.getElementById("clear").addEventListener("click", startAgain);
-const pause = document.getElementById("pauseButton").addEventListener("click", pauseCount)
-
 
 function callAllCounts() {
   initialCount()
@@ -26,7 +24,7 @@ function callAllCounts() {
 function initialCount() {
 
 
-  initial.classList.remove("hide");
+  initial.classList.remove("hide"); //Removes hidden css property 
   exercise.classList.remove("hide");
 
   setInterval(function () {
@@ -54,7 +52,7 @@ function mainCount() {
 
 
     if (timeleft <= 998) {
-      initial.classList.add("initial"); //Hides the initial countdown
+      initial.classList.add("initial"); //Hides the initial countdown after 1 second
     }
 
     if (timeleft >= 0) {
@@ -66,10 +64,9 @@ function mainCount() {
 }
 
 
+function generateExercise() { //randomly picks a new exercise every 10 seconds
 
-function generateExercise() {
-
-  setInterval(function () { //this function randomly picks a new exercise every 10 seconds
+  setInterval(function () {
 
     const i = Math.floor(Math.random() * 7);
     exercise.innerHTML = exArr[i];
@@ -82,12 +79,7 @@ function generateExercise() {
 }
 
 
-function pauseCount() {
-  clearInterval(mainCount)
-  console.log("hi")
-}
 
-
-function startAgain() {
+function startAgain() { // Reloads the entire program
   return window.location.reload();
 }

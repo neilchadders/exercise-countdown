@@ -1,37 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald&display=swap');
 
-
-html, body {
-	margin:0;
-	background-color: #c0fefc;
-	
+html,
+body {
+	margin: 0;
+	background-image: url(man-running2.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top;
+	font-family: 'Anton', sans-serif;
 }
 
-#main{
-	font-family: 'Press Start 2P', cursive;
-	background-color: #c0fefc;
+#main {
+
+	color: white;
+	background-color: black;
+
 }
 
 
 
-header{
+header {
+	color: white;
 	text-align: center;
 	padding: 25px;
 }
 
-h1{
+h1 {
 	animation-name: slidein;
 	animation-duration: 3s;
 }
 
-.centreDiv{
+.centreDiv {
 	text-align: center;
+
 }
 
-footer{
+footer {
 	text-align: center;
-	color: black;
+	color: white;
 	margin-top: 15%;
-	background-color: #c0fefc;
+	background-color: black;
 }
 
 
@@ -47,61 +55,63 @@ footer{
 
 #exercise {
 	font-size: 2em;
-	background-color: #c0fefc;
+
 }
 
 .visible {
 	visibility: hidden;
 	animation-name: slideright;
 	animation-duration: 3s;
-	background-color: #c0fefc;
+
 }
 
-.fa, .footer-tag{
+.fa,
+.footer-tag {
 	padding: 2%;
-	color: black;
+	color: white;
 	font-size: 20px;
-	background-color: #c0fefc;
+
 }
 
-.countdownDiv{
+.countdownDiv {
 	animation-name: slideup;
 	animation-duration: 3s;
-	background-color: #c0fefc;
+	color: white;
+	background-color: black;
 }
 
 @keyframes slidein {
-  from {
-    transform: translateX(-25%);
-  }
+	from {
+		transform: translateX(-25%);
+	}
 
-  to {
-    transform: translateX(0%);
-  }
+	to {
+		transform: translateX(0%);
+	}
 
 }
 
 @keyframes slideright {
-  from {
-    transform: translateX(25%);
-  }
+	from {
+		transform: translateX(25%);
+	}
 
-  to {
-    transform: translateX(0%);
-  }
+	to {
+		transform: translateX(0%);
+	}
 
 }
 
 
 @keyframes slideup {
 
-from {
-	transform: translateY(75%);
-} 
+	from {
+		transform: translateY(75%);
+	}
 
-to {
-	transform: translateY(0%);
-}
+	to {
+		transform: translateY(0%);
+	}
 
 
 }
