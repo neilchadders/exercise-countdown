@@ -20,7 +20,8 @@ body {
 
 
 #main-header {
-	padding: 25px;
+
+	background-color: black;
 }
 
 h1 {
@@ -28,7 +29,9 @@ h1 {
 	animation-duration: 3s;
 }
 
-.centreDiv {}
+.centreDiv {
+	background-color: black;
+}
 
 footer {}
 
