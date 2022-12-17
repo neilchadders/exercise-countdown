@@ -7,8 +7,6 @@ let timeleft = 999;
 const timer = document.getElementById("timer");
 const exercise = document.getElementById("exercise");
 const exArr = ["Push Up", "Kettlebell Swing", "Kettlebell Press", "Rows", "Plank", "Burpees", "Goblet Squat"];
-
-
 const click = document.getElementById("start").addEventListener("click", callAllCounts, { once: true });
 const clear = document.getElementById("clear").addEventListener("click", startAgain);
 let pauseBool = true;
@@ -17,13 +15,12 @@ let pauseBool = true;
 function callAllCounts() {
   initialCount()
   setTimeout(mainCount, 3000)
-  setTimeout(generateExercise, 3000)
+  //setTimeout(generateExercise, 3000)
 
 }
 
 function pause() {
   pauseBool = !pauseBool;
-
 }
 
 
@@ -52,7 +49,6 @@ function initialCount() {
 // Main countdown function 
 function mainCount() {
 
-
   const i = Math.floor(Math.random() * 7);
   exercise.innerHTML = exArr[i]; // Generates first random exercise from the array
 
@@ -63,19 +59,28 @@ function mainCount() {
       initial.classList.add("initial"); //Hides the initial countdown after 1 second
     }
 
-    if (timeleft >= 0 && pauseBool === true) {
+    if (timeleft >= 0 && pauseBool === true) { // Gives the pause button functionality
       timer.innerHTML = timeleft; // The thousand second countdown
       timeleft -= 1;
     }
 
-  }, 1000); //1 second decrements
+    if (timeleft % 10 === 9 && pauseBool === true) {
+      const i = Math.floor(Math.random() * 7);
+      exercise.innerHTML = exArr[i]
+      console.log(exercise)
+    }
 
+  }, 1000); //1 second decrements
 }
 
 
-function generateExercise() { //randomly picks a new exercise every 10 seconds
+/*function generateExercise() { //randomly picks a new exercise every 10 seconds
 
+    
+
+}
   setInterval(function () {
+
 
     const i = Math.floor(Math.random() * 7);
     exercise.innerHTML = exArr[i];
@@ -84,14 +89,10 @@ function generateExercise() { //randomly picks a new exercise every 10 seconds
       exercise.innerHTML = exArr[i];
     }
 
-    if (pauseBool === false) {
-      clearInterval(generateExercise)
-    }
-
   }, 10000); //10 seconds decrements for each excercise
 }
 
-
+*/
 
 function startAgain() { // Reloads the entire program
   return window.location.reload();
