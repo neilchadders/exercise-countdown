@@ -87,38 +87,3 @@ footer {
 	background-color: black;
 }
 
-@keyframes slidein {
-	from {
-		transform: translateX(-25%);
-	}
-
-	to {
-		transform: translateX(0%);
-	}
-
-}
-
-@keyframes slideright {
-	from {
-		transform: translateX(25%);
-	}
-
-	to {
-		transform: translateX(0%);
-	}
-
-}
-
-
-@keyframes slideup {
-
-	from {
-		transform: translateY(75%);
-	}
-
-	to {
-		transform: translateY(0%);
-	}
-
-
-}

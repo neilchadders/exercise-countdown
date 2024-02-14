@@ -27,7 +27,7 @@
 		<header id="main-header">
 			<h1>Exercise Countdown Timer</h1>
 			<label for="time">Time:</label><input type = "number" id = "time" name = "time">
-			<button type="submit" onclick="workout1.showTime()">Submit</button>
+			<button type="submit" onclick="workout1.setTime()">Submit</button>
 			<p id="new-exercise">Every 10 seconds a new exercise is generated for 1000 seconds.
 			</p>
 			<p class="visible">Click Start to go.</p>
@@ -36,7 +36,7 @@
 
 			<div class="countdownDiv centreDiv">
 				<p><span id="initial" class="hide">3</span></p>
-				<p><span id="timer">1000</span></p>
+				<p><span id="timer">00:00</span></p>
 
 				<p><span id="exercise" class="hide">Get ready...</span></p>
 
