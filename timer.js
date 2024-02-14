@@ -1,15 +1,29 @@
 
 //Initialising variables
-
+/*
 const initial = document.getElementById("initial");
 let begin = 2;
-let timeleft = 999;
-const timer = document.getElementById("timer");
+let timeleft = document.getElementById("time")
+const timer = c
 const exercise = document.getElementById("exercise");
 const exArr = ["Push Up", "Kettlebell Swing", "Kettlebell Press", "Rows", "Plank", "Burpees", "Goblet Squat"];
 const click = document.getElementById("start").addEventListener("click", callAllCounts, { once: true });
 const clear = document.getElementById("clear").addEventListener("click", startAgain);
 let pauseBool = true;
+*/
+
+let timeleft = document.getElementById("time")
+class Workout{
+    constructor( timeleft){
+      this.timeleft = timeleft
+    }
+    showTime(){
+      console.log(this.timeleft.value)
+    }
+}
+
+const workout1 = new Workout(timeleft) 
+workout1.showTime
 
 
 function callAllCounts() {
