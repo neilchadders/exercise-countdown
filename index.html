@@ -22,16 +22,34 @@
 
 <body>
 
+
+		
+
+
+	  <div class="button-container">
+			<button class="add-btn" id = "Burpee" value = "Burpee" onclick="workout1.burpee()">Burpee</button>
+			<button class="add-btn" id = "Plank" value = "Plank" onclick="workout1.plank()">Plank</button>
+			<button class="add-btn" id = "Rest" value = "Rest" onclick="workout1.rest()">Rest</button>
+			<button class="add-btn" id = "Sit Up" value = "Sit Up" onclick="workout1.situp()">Sit up</button>
+			<button class="add-btn" id = "Goblet Squat" value = "Goblet Squat" onclick="workout1.squat()">Goblet Squat</button>
+			<button class="add-btn" id = "Kettlebell Swing" value = "Kettlebell Swing" onclick="workout1.swing()">Kettlebell Swing</button>
+			<button class="add-btn" id = "Press Up" value = "Press Up" onclick="workout1.pressup()">Press Up</button>
+	  </div>
+	  
+	  <div id = "array"></div>
+
 	<main id="main">
 
 		<header id="main-header">
 			<h1>Exercise Countdown Timer</h1>
 			<label for="time">Time:</label><input type = "number" id = "time" name = "time">
-			<button type="submit" onclick="workout1.setTime()">Submit</button>
+			<button type="button" onclick="workout1.setTime()">Submit</button>
+
+
 			<p id="new-exercise">Every 10 seconds a new exercise is generated for 1000 seconds.
 			</p>
 			<p class="visible">Click Start to go.</p>
-
+			
 
 
 			<div class="countdownDiv centreDiv">

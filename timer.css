@@ -3,7 +3,7 @@
 html,
 body {
 	margin: 0;
-	background-image: url(man-running2.png);
+	xxbackground-image: url(man-running2.png);
 	background-color: black;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -16,11 +16,7 @@ body {
 }
 
 
-
-
-
 #main-header {
-
 	background-color: black;
 }
 
@@ -86,4 +82,11 @@ footer {
 	color: white;
 	background-color: black;
 }
+
+
+
+
+
+
+BUTTONS
 
