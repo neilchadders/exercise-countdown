@@ -17,14 +17,21 @@ const clear = document.getElementById("clear").addEventListener("click", startAg
 let pauseBool = true;
 
 let timeleft =  document.getElementById("time")
-
+let minutes = document.getElementById("minutes")
+let seconds = document.getElementById("seconds")
 
 //Constructor
 class Workout{
 
-      constructor( timeleft){
-      this.timeleft = timeleft.value
+      constructor( minutes, seconds){
+      this.minutes = minutes.value
+      this.seconds = seconds.value
+     
     }
+
+    
+
+
 
     burpee(assignId){
       let ex = assignId
@@ -54,12 +61,16 @@ class Workout{
       } */
       
     setTime(){ 
-      let minutes = Math.floor((timeleft.value % (60 * 60)) / 60)
-	    let seconds = Math.floor(timeleft.value % 60)
-      timer.innerHTML = `${minutes}:${seconds}` // trigerred in HTML on submit button
+      console.log(minutes.value)
+   
+      
+      let formatZero = ( (minutes.value < 10) ? "0" : "" ) + minutes.value + ":" + ( (seconds.value < 10) ? "0" : "" ) + seconds.value;
+      timer.innerHTML = formatZero
+      //timer.innerHTML = `${minutes.value}:${seconds.value}` // trigerred in HTML on submit button
     }
     setExercise(){      
       setInterval(function () {
+
         if(timeleft.value >= 0 && pauseBool)
         timer.innerHTML = timeleft.value -- //This subtracts 1 every second
        
@@ -73,7 +84,7 @@ class Workout{
 
 }
 
-const workout1 = new Workout(timeleft) 
+const workout1 = new Workout(minutes, seconds) 
 
 
 
