@@ -27,13 +27,15 @@
 
 
 	  <div class="button-container">
-			<button class="add-btn" id = "Burpee" value = "Burpee" onclick="workout1.burpee()">Burpee</button>
-			<button class="add-btn" id = "Plank" value = "Plank" onclick="workout1.plank()">Plank</button>
-			<button class="add-btn" id = "Rest" value = "Rest" onclick="workout1.rest()">Rest</button>
-			<button class="add-btn" id = "Sit Up" value = "Sit Up" onclick="workout1.situp()">Sit up</button>
-			<button class="add-btn" id = "Goblet Squat" value = "Goblet Squat" onclick="workout1.squat()">Goblet Squat</button>
-			<button class="add-btn" id = "Kettlebell Swing" value = "Kettlebell Swing" onclick="workout1.swing()">Kettlebell Swing</button>
-			<button class="add-btn" id = "Press Up" value = "Press Up" onclick="workout1.pressup()">Press Up</button>
+			<button class="add-btn" id = "Burpee" value = "Burpee" onclick="workout1.burpee(this.id)">Burpee</button>
+			
+			<button class="add-btn" id = "Plank" value = "Plank" onclick="workout1.burpee(this.id)">Plank</button>
+			<button class="add-btn" id = "Rest" value = "Rest" onclick="workout1.burpee(this.id)">Rest</button>
+			<button class="add-btn" id = "Sit Up" value = "Sit Up" onclick="workout1.burpee(this.id)">Sit up</button>
+			<button class="add-btn" id = "Goblet Squat" value = "Goblet Squat" onclick="workout1.burpee(this.id)">Goblet Squat</button>
+			<button class="add-btn" id = "Kettlebell Swing" value = "Kettlebell Swing" onclick="workout1.burpee(this.id)">Kettlebell Swing</button>
+			<button class="add-btn" id = "Press Up" value = "Press Up" onclick="workout1.burpee(this.id)">Press Up</button>
+			<button class="add-btn" id = "Select All" value = "Select All" onclick="workout1.burpee(this.id)">Select All</button>
 	  </div>
 	  
 	  <div id = "array"></div>

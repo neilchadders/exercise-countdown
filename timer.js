@@ -21,33 +21,42 @@ let timeleft =  document.getElementById("time")
 
 //Constructor
 class Workout{
-    constructor( timeleft){
+
+      constructor( timeleft){
       this.timeleft = timeleft.value
     }
 
-     burpee(){
-        exArr.push(document.getElementById("Burpee").value)
-      }
-      plank(){
-        exArr.push(document.getElementById("Plank").value)
-      }
-      rest(){
-        exArr.push(document.getElementById("Rest").value)
-      }
-      situp(){
-        exArr.push(document.getElementById("Sit Up").value)
-      }
-      squat(){exArr.push(document.getElementById("Goblet Squat").value)
+    burpee(assignId){
+      let ex = assignId
+      
+      if(!exArr.includes(ex)) {
+        exArr.push(document.getElementById(ex).value)
+       } else{
+      let x = exArr.indexOf(ex)
+      exArr.splice(x,1)
+    } if(ex === "Select All") {
+      exArr = ["Burpees", "Plank", "Rest", "Sit Up", "Goblet Squat", "Kettlebell Swing", "Press Up"]  
     }
-      swing(){
-        exArr.push(document.getElementById("Kettlebell Swing").value)
-      }
-      pressup(){
-        exArr.push(document.getElementById("Press Up").value)
-      }
+    console.log(exArr)
+    }
+
+    /*
+     burpee = () => workout1.addToArr("Burpee") 
+     plank = () => workout1.addToArr("Plank")
+     rest = () => workout1.addToArr("Rest")
+     squat = () => workout1.addToArr("Goblet Squat")
+      /*
+        if(!exArr.includes("Burpee")) {
+          exArr.push(document.getElementById("Burpee").value)
+         } else{
+        let x = exArr.indexOf("Burpee")
+        exArr.splice(x,1)
+      } */
       
     setTime(){ 
-      timer.innerHTML = timeleft.value // trigerred in HTML on submit button
+      let minutes = Math.floor((timeleft.value % (60 * 60)) / 60)
+	    let seconds = Math.floor(timeleft.value % 60)
+      timer.innerHTML = `${minutes}:${seconds}` // trigerred in HTML on submit button
     }
     setExercise(){      
       setInterval(function () {
@@ -61,8 +70,8 @@ class Workout{
           }
       }, 1000);
     }
-    }
 
+}
 
 const workout1 = new Workout(timeleft) 
 
