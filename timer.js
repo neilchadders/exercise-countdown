@@ -23,15 +23,11 @@ let seconds = document.getElementById("seconds")
 //Constructor
 class Workout{
 
-      constructor( minutes, seconds){
+      constructor( minutes){
       this.minutes = minutes.value
       this.seconds = seconds.value
      
     }
-
-    
-
-
 
     burpee(assignId){
       let ex = assignId
@@ -61,16 +57,13 @@ class Workout{
       } */
       
     setTime(){ 
-      console.log(minutes.value)
-   
-      
+     
       let formatZero = ( (minutes.value < 10) ? "0" : "" ) + minutes.value + ":" + ( (seconds.value < 10) ? "0" : "" ) + seconds.value;
       timer.innerHTML = formatZero
       //timer.innerHTML = `${minutes.value}:${seconds.value}` // trigerred in HTML on submit button
     }
     setExercise(){      
       setInterval(function () {
-
         if(timeleft.value >= 0 && pauseBool)
         timer.innerHTML = timeleft.value -- //This subtracts 1 every second
        
@@ -84,7 +77,7 @@ class Workout{
 
 }
 
-const workout1 = new Workout(minutes, seconds) 
+const workout1 = new Workout(minutes) 
 
 
 
@@ -92,7 +85,7 @@ const workout1 = new Workout(minutes, seconds)
 function callAllCounts() {
   initialCount()
   setTimeout(mainCount, 3000)
-  setTimeout(workout1.setExercise, 3000)
+  setTimeout(setExercise, 3000)
 }
 
 const pause = ()=> pauseBool = !pauseBool;
@@ -115,12 +108,40 @@ const initialCount = () => {
   }, 1000); //1 second decrements
 }
 
+let timeInSecs;
+let ticker;
+
+function setExercise() {
+let secs = (minutes.value * 6 ) + (seconds.value)
+console.log(minutes.value, seconds.value)
+timeInSecs = secs;
+ticker = setInterval("tick()", 1000); 
+}
+
+function tick( ) {
+if (timeInSecs > 0 && pauseBool) {
+timeInSecs--; 
+}
+else {
+clearInterval(ticker);
+ 
+}
+
+console.log(timeInSecs)
+
+let mins = Math.floor(timeInSecs/60);
+secs = timeInSecs %60;
+let formatZero = ( (mins < 10) ? "0" : "" ) + mins + ":" + ( (secs < 10) ? "0" : "" ) + secs;
+console.log(exArr.length)
+if( secs % 10 === 0) exercise.innerHTML = exArr[Math.floor(Math.random() * exArr.length-1)]
+timer.innerHTML = formatZero;
+}
 
 
 // Main countdown function 
 function mainCount() {
- // let i = Math.floor(Math.random() * 7);
-  //exercise.innerHTML = exArr[i]; // Generates first random exercise from the array
+ let i = Math.floor(Math.random() * 7);
+  exercise.innerHTML = exArr[i]; // Generates first random exercise from the array
 
   setInterval(function () {
       initial.classList.add("initial"); //Hides the initial countdown after 1 second   
