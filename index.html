@@ -27,14 +27,14 @@
 
 
 	  <div class="button-container">
-			<button class="add-btn" id = "Burpee" value = "Burpee" onclick="workout1.burpee(this.id)">Burpee</button>
-			<button class="add-btn" id = "Plank" value = "Plank" onclick="workout1.burpee(this.id)">Plank</button>
-			<button class="add-btn" id = "Rest" value = "Rest" onclick="workout1.burpee(this.id)">Rest</button>
-			<button class="add-btn" id = "Sit Up" value = "Sit Up" onclick="workout1.burpee(this.id)">Sit up</button>
-			<button class="add-btn" id = "Goblet Squat" value = "Goblet Squat" onclick="workout1.burpee(this.id)">Goblet Squat</button>
-			<button class="add-btn" id = "Kettlebell Swing" value = "Kettlebell Swing" onclick="workout1.burpee(this.id)">Kettlebell Swing</button>
-			<button class="add-btn" id = "Press Up" value = "Press Up" onclick="workout1.burpee(this.id)">Press Up</button>
-			<button class="add-btn" id = "Select All" value = "Select All" onclick="workout1.burpee(this.id)">Select All</button>
+			<button class="add-btn" id = "Burpee" value = "Burpee" onclick="workout1.setExercise(this.id)">Burpee</button>
+			<button class="add-btn" id = "Plank" value = "Plank" onclick="workout1.setExercise(this.id)">Plank</button>
+			<button class="add-btn" id = "Rest" value = "Rest" onclick="workout1.setExercise(this.id)">Rest</button>
+			<button class="add-btn" id = "Sit Up" value = "Sit Up" onclick="workout1.setExercise(this.id)">Sit up</button>
+			<button class="add-btn" id = "Goblet Squat" value = "Goblet Squat" onclick="workout1.setExercise(this.id)">Goblet Squat</button>
+			<button class="add-btn" id = "Kettlebell Swing" value = "Kettlebell Swing" onclick="workout1.setExercise(this.id)">Kettlebell Swing</button>
+			<button class="add-btn" id = "Press Up" value = "Press Up" onclick="workout1.setExercise(this.id)">Press Up</button>
+			<button class="add-btn" id = "Select All" value = "Select All" onclick="workout1.setExercise(this.id)">Select All</button>
 	  </div>
 	  
 	  <div id = "array"></div>
@@ -43,6 +43,12 @@
 
 		<header id="main-header">
 			<h1>Exercise Countdown Timer</h1>
+
+
+			<button class = "time-btn" value = "03:00" id = "03:00" onclick="workout1.timeButton(this.id)">3 minutes</button>
+			<button class = "time-btn" value = "05:00" id = "05:00" onclick="workout1.timeButton(this.id)">5 minutes</button>
+			<button class = "time-btn" value = "10:00" id = "10:00" onclick="workout1.timeButton(this.id)">10 minutes</button><br>
+			<p>or enter a time in munutes and seconds</p>
 			<label for="minutes">Minutes:</label><input type = "number" id = "minutes" name = "minutes">
 			<label for="seconds">Seconds:</label><input type = "number" id = "seconds" name = "seconds">
 			<button type="button" onclick="workout1.setTime()">Submit</button>
