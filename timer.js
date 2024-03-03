@@ -24,13 +24,14 @@ let buttonClick = 0;
 let secs;
 
 //Constructor
-class Workout{
 
-      constructor( minutes, seconds){
-     
-      this.minutes = minutes.value
-      this.seconds = seconds.value
-     
+class Workout{
+    #minutes
+    #seconds
+    date = new Date();
+    toPrivate(){
+      this.#minutes = minutes.value
+      this.#seconds = seconds.value
     }
 
     setExercise(assignId){
@@ -48,10 +49,24 @@ class Workout{
     }
  
     setTime(){ 
-      
-      let formatZero = ( (minutes.value < 10) ? "0" : "" ) + minutes.value + ":" + ( (seconds.value < 10) ? "0" : "" ) + seconds.value;
+      this.toPrivate()
+      let formatZero = ( (this.#minutes < 10) ? "0" : "" ) + this.#minutes + ":" + ( (this.#seconds< 10) ? "0" : "" ) + this.#seconds;
       timer.innerHTML = formatZero
      // trigerred in HTML on submit button
+      console.log(exArr, this.#minutes)
+
+      const list = document.getElementById("list");
+
+      let html = `
+      <li class="workout -type">
+        <h2 class="workout__title">Circuit ${this.date}</h2>
+        <div class="workout__details">
+          <span class="workout__value">${formatZero} min</span>
+          
+        </div>
+    `;
+
+    list.insertAdjacentHTML("afterend", html);
     }
 
     timeButton = (id) => {
@@ -59,12 +74,24 @@ class Workout{
       seconds.value = 0
     
     }
+
+    createDescription(){
+
+      let html = `
+      <li class="workout -type">
+        <h2 class="workout__title">Circuit</h2>
+        <div class="workout__details">
+          <span class="workout__value">${workout.duration}</span>
+          <span class="workout__unit">min</span>
+        </div>
+    `;
+
+
+
+    }
 }
 
 const workout1 = new Workout(minutes, seconds) 
-
-
-
 
 function callAllCounts() {
   initialCount()
@@ -76,7 +103,6 @@ let pause = ()=> {
   pauseBool = !pauseBool;
   console.log(exArr)
 }
-
 
 // Initial 3,2,1 countdown function
 const initialCount = () => {
@@ -114,17 +140,12 @@ timeInSecs--;
 }
 
 
-console.log(timeInSecs)
-
 let mins = Math.floor(timeInSecs/60);
 secs = timeInSecs %60;
 let formatZero = ( (mins < 10) ? "0" : "" ) + mins + ":" + ( (secs < 10) ? "0" : "" ) + secs;
-
 let z = exArr[Math.floor(Math.random() * exArr.length-1)]
 
 if( secs % 10 === 0) exercise.innerHTML = z
-
-
 timer.innerHTML = formatZero;
 }
 
@@ -145,3 +166,63 @@ function startAgain() { // Reloads the entire program
   return window.location.reload();
 } 
 
+
+// //////////// OUTDOOR EXERCISE //////////
+class OutdoorWorkout {
+  date = new Date();
+  id = (Date.now() + '').slice(-10);
+  clicks = 0;
+
+  constructor(distance, duration) { // add coords
+    // this.date = ...
+    // this.id = ...
+   // this.coords = coords;
+    this.distance = distance; // in km
+    this.duration = duration; // in min
+  }
+
+  _setDescription() {
+    // prettier-ignore
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    this.description = `${this.type[0].toUpperCase()}${this.type.slice(1)} on ${
+      months[this.date.getMonth()]
+    } ${this.date.getDate()}`;
+  }
+
+  click() {
+    this.clicks++;
+  }
+}
+
+class Running extends OutdoorWorkout {
+  type = 'running';
+
+  constructor(distance, duration) { //coords
+    super(distance, duration);
+    this.calcPace();
+    this._setDescription();
+  }
+
+  calcPace() {
+    // min/km
+    this.pace = this.duration / this.distance;
+    return this.pace;
+  }
+}
+
+class Cycling extends OutdoorWorkout {
+  type = 'cycling';
+
+  constructor(distance, duration) { //coords
+    super(distance, duration);
+    this.calcSpeed();
+    this._setDescription();
+  }
+
+  calcSpeed() {
+    // km/h
+    this.speed = this.distance / (this.duration / 60);
+    return this.speed;
+  }
+}
