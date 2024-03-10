@@ -27,14 +27,14 @@
 
 
 	  <div class="button-container">
-			<button class="add-btn" id = "Burpee" value = "Burpee" onclick="workout1.setExercise(this.id)">Burpee</button>
-			<button class="add-btn" id = "Plank" value = "Plank" onclick="workout1.setExercise(this.id)">Plank</button>
-			<button class="add-btn" id = "Rest" value = "Rest" onclick="workout1.setExercise(this.id)">Rest</button>
-			<button class="add-btn" id = "Sit Up" value = "Sit Up" onclick="workout1.setExercise(this.id)">Sit up</button>
-			<button class="add-btn" id = "Goblet Squat" value = "Goblet Squat" onclick="workout1.setExercise(this.id)">Goblet Squat</button>
-			<button class="add-btn" id = "Kettlebell Swing" value = "Kettlebell Swing" onclick="workout1.setExercise(this.id)">Kettlebell Swing</button>
-			<button class="add-btn" id = "Press Up" value = "Press Up" onclick="workout1.setExercise(this.id)">Press Up</button>
-			<button class="add-btn" id = "Select All" value = "Select All" onclick="workout1.setExercise(this.id)">Select All</button>
+			<button class="add-btn" id = "Burpees" value = "Burpees" >Burpee</button>
+			<button class="add-btn" id = "Plank" value = "Plank" >Plank</button>
+			<button class="add-btn" id = "Rest" value = "Rest" >Rest</button>
+			<button class="add-btn" id = "Sit Up" value = "Sit Up" >Sit up</button>
+			<button class="add-btn" id = "Goblet Squat" value = "Goblet Squat" >Goblet Squat</button>
+			<button class="add-btn" id = "Kettlebell Swing" value = "Kettlebell Swing" >Kettlebell Swing</button>
+			<button class="add-btn" id = "Press Up" value = "Press Up" >Press Up</button>
+			<button class="add-btn" id = "Select All" value = "Select All" >Select All</button>
 	  </div>
 	  
 	  <div id = "array"></div>
@@ -43,15 +43,13 @@
 
 		<header id="main-header">
 			<h1>Exercise Countdown Timer</h1>
-
-
-			<button class = "time-btn" value = "03:00" id = "03:00" onclick="workout1.timeButton(this.id)">3 minutes</button>
-			<button class = "time-btn" value = "05:00" id = "05:00" onclick="workout1.timeButton(this.id)">5 minutes</button>
-			<button class = "time-btn" value = "10:00" id = "10:00" onclick="workout1.timeButton(this.id)">10 minutes</button><br>
+			<button class = "time-btn" value = "03:00" id = "03:00">3 minutes</button>
+			<button class = "time-btn" value = "05:00" id = "05:00">5 minutes</button>
+			<button class = "time-btn" value = "10:00" id = "10:00">10 minutes</button><br>
 			<p>or enter a time in munutes and seconds</p>
-			<label for="minutes">Minutes:</label><input type = "number" id = "minutes" name = "minutes">
-			<label for="seconds">Seconds:</label><input type = "number" id = "seconds" name = "seconds">
-			<button type="button" onclick="workout1.setTime()">Submit</button>
+			<label for="minutes">Minutes:</label><input type = "number" id = "minutes" name = "minutes" value = "0">
+			<label for="seconds">Seconds:</label><input type = "number" id = "seconds" name = "seconds" value = "0">
+			<button type="button" id ="submit-time">Submit</button>
 
 
 			<p id="new-exercise">Every 10 seconds a new exercise is generated for 1000 seconds.
@@ -67,37 +65,11 @@
 				<p><span id="exercise" class="hide">Get ready...</span></p>
 
 				<button id="start">Start</button>
-				<button onclick="pause()">Pause</button>
+				<button id ="pause">Pause</button>
 				<button id="clear">Clear</button>
 			</div>
 
 		</header>
-
-		<div class="sidebar">
-		
-	  
-			<ul class="workouts">
-			  <form class="form hidden">
-				<div class="form__row">
-				  <label class="form__label">Type</label>
-				  <select class="form__input form__input--type">
-					<option value="running">Running</option>
-					<option value="cycling">Cycling</option>
-				  </select>
-				</div>
-				<div class="form__row">
-				  <label class="form__label">Distance</label>
-				  <input class="form__input form__input--distance" placeholder="km" />
-				</div>
-				<div class="form__row">
-				  <label class="form__label">Duration</label>
-				  <input
-					class="form__input form__input--duration"
-					placeholder="min"
-				  />
-				</div>
-				<button class="form__btn">OK</button>
-			  </form>
 	<h2 id = 'list'>List</h2>
 
 	</main>
