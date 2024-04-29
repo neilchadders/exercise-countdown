@@ -23,8 +23,9 @@
 <body>
 
 
-		
+	<h1>Exercise Countdown Timer</h1>
 
+	<div id = "hide-main">
 
 	  <div class="button-container">
 			<button class="add-btn" id = "Burpees" value = "Burpees" >Burpee</button>
@@ -36,13 +37,13 @@
 			<button class="add-btn" id = "Press Up" value = "Press Up" >Press Up</button>
 			<button class="add-btn" id = "Select All" value = "Select All" >Select All</button>
 	  </div>
-	  
+	  <h2 id = 'list'>Exercise List</h2>
 	  <div id = "array"></div>
 
 	<main id="main">
 
 		<header id="main-header">
-			<h1>Exercise Countdown Timer</h1>
+			
 			<button class = "time-btn" value = "03:00" id = "03:00">3 minutes</button>
 			<button class = "time-btn" value = "05:00" id = "05:00">5 minutes</button>
 			<button class = "time-btn" value = "10:00" id = "10:00">10 minutes</button><br>
@@ -56,9 +57,9 @@
 			</p>
 			<p class="visible">Click Start to go.</p>
 			
+	</div>
 
-
-			<div class="countdownDiv centreDiv">
+			<div id ="countdownDiv">
 				<p><span id="initial" class="hide">3</span></p>
 				<p><span id="timer">00:00</span></p>
 
@@ -70,7 +71,7 @@
 			</div>
 
 		</header>
-	<h2 id = 'list'>List</h2>
+	
 
 	</main>
 

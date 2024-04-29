@@ -3,7 +3,6 @@
 html,
 body {
 	margin: 0;
-	xxbackground-image: url(man-running2.png);
 	background-color: black;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -25,9 +24,7 @@ h1 {
 	animation-duration: 3s;
 }
 
-.centreDiv {
-	background-color: black;
-}
+
 
 footer {}
 
@@ -75,10 +72,8 @@ footer {
 }
 
 
-
-.countdownDiv {
-	animation-name: slideup;
-	animation-duration: 3s;
+#countdownDiv {
+	visibility: hidden;
 	color: white;
 	background-color: black;
 }

@@ -16,6 +16,16 @@ const setArray=  (e)=> {
   exArr = ["Burpees", "Plank", "Rest", "Sit Up", "Goblet Squat", "Kettlebell Swing", "Press Up"]  
 }
 console.log(exArr)
+
+const list = document.getElementById("list");
+  let html = `
+    <div>
+      <span class="workout__value">${exArr.map(e => " " + e)}</span>
+      
+    </div>
+`;
+
+list.innerHTML = html;
 }
 for (let button of addExerciseButtons) {
 button.addEventListener("click", setArray);
@@ -29,23 +39,13 @@ const timer = document.getElementById("timer")
 let minutes = document.getElementById("minutes")
 let seconds = document.getElementById("seconds")
 
+
 const setTime= ()=> { 
  
   let formatZero = ( (minutes.value < 10) ? "0" : "" ) + minutes.value + ":" + ( (seconds.value< 10) ? "0" : "" ) + seconds.value;
   timer.innerHTML = formatZero
-  
-  const list = document.getElementById("list");
-  let html = `
-  <li class="workout -type">
-    <h2 class="workout__title">Circuit ${new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"})}</h2>
-    <div class="workout__details">
-      <span class="workout__value">${formatZero} </span>
-      <span class="workout__value">${exArr.map(e => " " + e)}</span>
-      
-    </div>
-`;
-
-list.insertAdjacentHTML("afterend", html);
+  document.getElementById("countdownDiv").style.visibility = "visible";
+  document.getElementById("hide-main").style.display = "none";
 }
 const subTime = document.getElementById("submit-time").addEventListener("click", setTime)
 
