@@ -82,19 +82,19 @@ const callAllCounts = () => {
   setTimeout(setExercise, 3000)
 } */
 
-function callAllCounts() { 
-  initialCount()
-
-return new Promise(function (resolve, reject) { 
-
-// Setting 3000 ms time 
-setTimeout(resolve, 3000); 
-}).then(function () { 
-      console.log("works")
-        mainCount()
-        setExercise()
-}); 
-}
+  async function callAllCounts() {
+    // Start the initial countdown
+    initialCount();
+  
+    // Wait for 3000 ms (3 seconds) using async/await
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+  
+    // Proceed to mainCount and setExercise
+    console.log("works");
+    mainCount();
+    setExercise();
+  }
+  
 
 const click = document.getElementById("start").addEventListener("click", callAllCounts, { once: true }); //ensures can only run once
 
