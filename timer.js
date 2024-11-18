@@ -2,11 +2,20 @@
 //ADD Exercises - 
 
 const addExerciseButtons = document.getElementsByClassName("add-btn");
+const list = document.getElementById("list");
+const timer = document.getElementById("timer")
+const minutes = document.getElementById("minutes")
+const seconds = document.getElementById("seconds")
+const timeButtons = document.getElementsByClassName("time-btn")
+
+
+let pauseBool = true;
 let exArr = []
 
 const setArray=  (e)=> {
      
   let ex = e.target.id
+
   if(!exArr.includes(ex)) {
     exArr.push(document.getElementById(ex).value)
   } else{
@@ -17,7 +26,6 @@ const setArray=  (e)=> {
 }
 console.log(exArr)
 
-const list = document.getElementById("list");
   let html = `
     <div>
       <span class="workout__value">${exArr.map(e => " " + e)}</span>
@@ -27,6 +35,7 @@ const list = document.getElementById("list");
 
 list.innerHTML = html;
 }
+
 for (let button of addExerciseButtons) {
 button.addEventListener("click", setArray);
 }
@@ -34,11 +43,6 @@ button.addEventListener("click", setArray);
 
 
 //Set Circuit Time
-
-const timer = document.getElementById("timer")
-let minutes = document.getElementById("minutes")
-let seconds = document.getElementById("seconds")
-
 
 const setTime= ()=> { 
  
@@ -53,7 +57,7 @@ const subTime = document.getElementById("submit-time").addEventListener("click",
 
 //timeButtons - preset time button functionality 
 
-const timeButtons = document.getElementsByClassName("time-btn")
+
 
 const clickTimeButton = (e) =>{
   minutes.value = parseInt(e.target.id)
@@ -68,7 +72,7 @@ for (let button of timeButtons) {
 // Pause Functionality
 const pause = ()=> { pauseBool = !pauseBool}
 const pauseButton = document.getElementById("pause").addEventListener("click", pause)
-let pauseBool = true;
+
 
 
 /*
@@ -146,6 +150,7 @@ timeInSecs--;
 let mins = Math.floor(timeInSecs/60);
 secs = timeInSecs %60;
 let formatZero = ( (mins < 10) ? "0" : "" ) + mins + ":" + ( (secs < 10) ? "0" : "" ) + secs;
+
 let z = exArr[Math.floor(Math.random() * (exArr.length-1))]
 
 if( secs % 10 === 0) exercise.innerHTML = z
