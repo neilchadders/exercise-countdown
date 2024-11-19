@@ -45,8 +45,13 @@ button.addEventListener("click", setArray);
 //Set Circuit Time
 
 const setTime= ()=> { 
+
+  let totalSecs = parseInt(minutes.value) * 60 + parseInt(seconds.value);
+  console.log(totalSecs)
+  let formatMinutes = parseInt(Math.floor(totalSecs / 60));
+  let formatSeconds = parseInt(totalSecs % 60);// This is to ensure that the seconds are displayed as 2 digits and coverted to minutes if greater tha 60
  
-  let formatZero = ( (minutes.value < 10) ? "0" : "" ) + minutes.value + ":" + ( (seconds.value< 10) ? "0" : "" ) + seconds.value;
+  let formatZero = ( (formatMinutes < 10) ? "0" : "" ) + formatMinutes+ ":" + ( (formatSeconds< 10) ? "0" : "" ) + formatSeconds;
   timer.innerHTML = formatZero
   document.getElementById("countdownDiv").style.visibility = "visible";
   document.getElementById("hide-main").style.display = "none";
@@ -151,17 +156,48 @@ let mins = Math.floor(timeInSecs/60);
 secs = timeInSecs %60;
 let formatZero = ( (mins < 10) ? "0" : "" ) + mins + ":" + ( (secs < 10) ? "0" : "" ) + secs;
 
-let z = exArr[Math.floor(Math.random() * (exArr.length-1))]
+
+let lastIndex = -1; // Initialize a variable to track the last selected index
+
+if (secs % 10 === 0 && exArr.length > 0) {
+  let newIndex;
+
+  // Ensure the new index is different from the last index
+  do {
+    newIndex = Math.floor(Math.random() * exArr.length);
+  } while (newIndex === lastIndex);
+
+  lastIndex = newIndex; // Update the last index
+
+  // Display the selected exercise
+  const randomExercise = exArr[newIndex];
+  exercise.innerHTML = randomExercise;
+}
+
+// Update the timer display
+timer.innerHTML = formatZero;
+
+// If time is up, show "Finished!"
+if (timeInSecs === 0) {
+  exercise.innerHTML = "Finished!";
+}
+} /*
+
+A random index is generated.
+If the generated index matches the lastIndex, the loop regenerates a new index.
+Once a unique index is found, it's stored in lastIndex, and the corresponding exercise is displayed.*/
+
+/*let z = exArr[Math.floor(Math.random() * (exArr.length-1))]
 
 if( secs % 10 === 0) exercise.innerHTML = z
 timer.innerHTML = formatZero;
 if( timeInSecs === 0) exercise.innerHTML = "Finished!"
 }
-
+*/
 
 // Main countdown function 
 const mainCount =()=> {
- let i = Math.floor(Math.random() * (exArr.length-1));
+ let i = Math.floor(Math.random() * exArr.length);
   exercise.innerHTML = exArr[i]; // Generates first random exercise from the array
 
   setInterval(function () {
