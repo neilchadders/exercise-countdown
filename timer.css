@@ -16,7 +16,7 @@ body {
 
 
 #main-header {
-	background-color: black;
+	visibility: hidden;
 }
 
 h1 {
@@ -79,7 +79,9 @@ footer {
 }
 
 
-
+.add-time{
+	visibility: hidden;
+}
 
 
 
