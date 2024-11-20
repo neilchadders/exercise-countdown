@@ -24,6 +24,9 @@ const setArray=  (e)=> {
 } if(ex === "Select All") {
   exArr = ["Burpees", "Plank", "Rest", "Sit Up", "Goblet Squat", "Kettlebell Swing", "Press Up"]  
 }
+if(ex === "Clear") {
+  exArr = []  
+}
 console.log(exArr)
 
   let html = `
