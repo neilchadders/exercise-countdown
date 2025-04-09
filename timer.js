@@ -1,5 +1,5 @@
 
-//Variables
+//Dom 
 
 const addExerciseButtons = document.getElementsByClassName("add-btn");
 const list = document.getElementById("list");
@@ -10,6 +10,7 @@ const timeButtons = document.getElementsByClassName("time-btn")
 const showTimeButton = document.getElementById("add-time")
 const mainHeader = document.getElementById("main-header")
 
+//Vars
 let pauseBool = true;
 let exArr = []
 
